@@ -10,7 +10,6 @@ import javax.persistence.*;
 @Builder
 @Setter
 @EqualsAndHashCode
-@ToString
 @Table //JPA
 @Entity //JPA
 public class Task {
@@ -23,4 +22,12 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @Override
+    public String toString() {
+        return "Task: " +
+                "Id: " + id +
+                ", Name: " + name +
+                ", Description: " + description + ", Category: " + category;
+    }
 }

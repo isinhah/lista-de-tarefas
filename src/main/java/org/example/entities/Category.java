@@ -1,16 +1,12 @@
 package org.example.entities;
 
-import jdk.jfr.Description;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Objects;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Builder
 @Setter
 @EqualsAndHashCode
 @ToString
@@ -21,16 +17,25 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
-    @Column(name = "taskQuantity")
-    private Integer quantity;
-    @OneToMany(mappedBy = "category")
-    private List<Task> tasksList;
+    @OneToMany(mappedBy = "category") // Mapeamento para a lista de tarefas
+    private List<Task> tasks;
 
-    public int quantityOfTasks() {
-        if (tasksList != null) {
-            return tasksList.size();
+    public Category(Integer id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
+    public int quantityOfTasks(Task task) {
+        if (tasks != null) {
+            return tasks.size();
         } else {
-            return 0; // Se não houver tarefas, retorna 0
+            return 0;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Id: " + id +
+                ", Title: " + title;
     }
 }
