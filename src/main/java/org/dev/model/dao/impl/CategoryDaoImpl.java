@@ -102,16 +102,13 @@ public class CategoryDaoImpl implements CategoryDAO {
         return category;
     }
 
-    @Override
     public List<Category> findAll() {
         try {
             List<Category> categories = em.createQuery("SELECT c FROM Category c", Category.class).getResultList();
-            for (Category category : categories) {
-                System.out.println(category);
-            }
             return categories;
         } catch (RuntimeException e) {
             throw new RuntimeException("Erro ao listar categorias: " + e.getMessage());
         }
     }
+
 }

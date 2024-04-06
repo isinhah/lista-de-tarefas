@@ -40,7 +40,10 @@ public class CategoryMenu {
         }
 
         System.out.println("==== LISTAR CATEGORIAS ====");
-        categoryDAO.findAll();
+        List<Category> allCategories = categoryDAO.findAll();
+        for (Category category : allCategories) {
+            System.out.println(category);
+        }
 
         sc.close();
     }
