@@ -14,12 +14,12 @@ public class DaoFactory {
         emf = Persistence.createEntityManagerFactory("tarefas-jpa");
     }
 
-    public static TaskDAO getTaskDAO() {
+    public static TaskDAO createTaskDAO() {
         EntityManager em = emf.createEntityManager();
         return new TaskDaoImpl(em);
     }
 
-    public static CategoryDAO getCategoryDAO() {
+    public static CategoryDAO createCategoryDAO() {
         EntityManager em = emf.createEntityManager();
         return new CategoryDaoImpl(em);
     }

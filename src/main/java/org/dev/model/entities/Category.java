@@ -9,7 +9,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@ToString
 @Table //JPA
 @Entity //JPA
 public class Category {
@@ -17,7 +16,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
-    @OneToMany(mappedBy = "category") // Mapeamento para a lista de tarefas
+    @OneToMany(mappedBy = "category")
     private List<Task> tasks;
 
     public Category(Integer id, String title) {
