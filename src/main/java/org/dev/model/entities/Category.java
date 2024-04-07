@@ -24,14 +24,6 @@ public class Category {
         this.title = title;
     }
 
-    public int quantityOfTasks(Task task) {
-        if (tasks != null) {
-            return tasks.size();
-        } else {
-            return 0;
-        }
-    }
-
     @Override
     public String toString() {
         return "Id: " + id +
