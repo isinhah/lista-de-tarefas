@@ -23,6 +23,12 @@ public class Task {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    public Task(Integer id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         return "Task: " +

@@ -55,8 +55,6 @@ public class CategoryDaoImpl implements CategoryDAO {
         }
     }
 
-
-
     @Override
     public void deleteById(Integer id) {
         EntityTransaction transaction = null;
@@ -110,5 +108,4 @@ public class CategoryDaoImpl implements CategoryDAO {
             throw new RuntimeException("Erro ao listar categorias: " + e.getMessage());
         }
     }
-
 }
